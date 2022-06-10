@@ -21,7 +21,7 @@ export default function Word({word,index}) {
     if(isCurrent){
       currentWord.current.scrollIntoView()
     }
-  },[currentIndex])
+  },[currentIndex, isCurrent])
 
   return (
         <span
