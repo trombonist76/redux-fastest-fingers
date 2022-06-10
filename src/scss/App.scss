@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;700&display=swap");
+@import "mixin";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Sora", sans-serif;
+}
+
+html,
+body,
+#root,
+.App {
+  background-color: $bg-light;
+  height: 100%
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  .navbar {
+      width: 100%;
+      display: flex;
+      padding-left: 15px;
+      align-items: center;
+      margin: 15px 0 100px 0px;
+  
+      .content {
+        height: 100px;
+        width: 100%;
+        background-color: $bg-indigo;
+        transform: translateX(-30px);
+        border-radius: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: white;
+        overflow: hidden;
+  
+        h1 {
+          margin: auto;
+          transform: translateX(30px);
+        }
+  
+        .replay {
+          height: 100%;
+  
+          button {
+            display: flex;
+            background: none;
+            color: red;
+            font-size: 18px;
+            height: 100%;
+            color: white;
+            width: 120px;
+            border: none;
+            cursor: pointer;
+  
+            svg {
+              font-size: 35px;
+              margin: auto;
+            }
+          }
+        }
+      }
+  
+      .timer {
+        width: 170px;
+        height: 170px;
+        font-size: 28px;
+        font-weight: bold;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fcca46;
+        color: black;
+        position: relative;
+        z-index: 1;
+    
+        svg {
+          width: 45px;
+          height: 45px;
+        }
+    
+        span {
+          width: 60px;
+          height: 60px;
+        }
+      }
+  }
+
+  .textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $bg-indigo;
+    overflow: hidden;
+    width: 60%;
+    height: 170px;
+    margin-bottom: 70px;
+    padding: 20px;
+    border-radius: 15px;
+
+
+
+    .inner{
+      display: flex;
+      justify-content: space-around;
+      height: 100%;
+      font-size: 1.8em;
+      flex-wrap: wrap;
+      row-gap: 15px;
+      overflow: hidden;
+
+      span {
+        @include centered-row;
+        margin-top: 20px;
+        height: 55px;
+        margin: 2px;
+        padding: 8px 12px;
+        border-radius: 18px;
+  
+        &.current {
+          background-color: $bg-current;
+        }
+  
+        &.highlightWrong{
+          background-color: $bg-red;
+          color:white
+        }
+  
+        &.wrong{
+          color:red
+        }
+  
+        &.correct{
+          color:$text-green
+        }
+      }
+
+
+    }
+  }
+
+
+  label{
+    width: 50%;
+    height: 80px;
+    background-color: $bg-light;
+    position: relative;
+
+    input{
+      width: 100%;
+      height: 100%;
+      padding: 0 15px;
+      font-size: 1.5em;
+      border: 2px solid $bg-indigo;
+      background-color: $bg-light;
+      
+      &:focus{
+        outline: 2px solid $bg-indigo;
+      }
+    }
+
+    span{
+      position: absolute;
+      top: -10px;
+      right: 50px;
+      font-size: 1.3em;
+      background-color: $bg-light;
+      padding: 0 10px;
+
+    }
+
+
+  }
+
+  .showResult{
+    @include centered-row;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $bg-sky;
+    height: 100%;
+    z-index: 1;
+
+    .stats{
+      @include centered-col;
+      height: 500px;
+      border: 2px solid black;
+      width: 40%;
+      justify-content:space-evenly;
+      padding: 30px;
+
+
+      .title{
+        @include centered-row;
+        font-size: 35px;
+        font-weight: bold;
+        
+  
+        svg{
+          font-size: 40 px;
+          margin-left: 10px;
+          margin-bottom: 5px;
+          color: rgb(0, 0, 0);
+        }
+      }
+  
+      .wordsPerMinute{
+        font-size: 35px; 
+        margin-bottom: 20px;
+        text-align: center;
+        span{
+          display: block;
+          font-size: 14px;
+          font-weight: 300;
+          // font-style: italic;
+        }
+      }
+
+      .inner{
+        width: 50%;
+        margin-bottom: 20px;
+
+        div{
+          width: 100%;
+          display: flex;
+          font-size: 20px;
+          font-weight: bold;
+        
+          span{
+            margin-left: auto;
+          }
+
+        }
+        
+        .keyStroke span{
+
+          &::before{
+            content: attr(dataWrong);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: $text-red;
+            font-weight: bold;
+
+            border-radius: 50%;
+            margin-right: 10px;
+          
+          }
+
+          &::after{
+            content:  attr(dataCorrect) ;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: bold;
+            color: $text-green;
+            border-radius: 50%;
+            margin-left: 10px;
+
+          }
+
+        }
+
+      }
+
+      button{
+        @include centered-row;;
+        background: none;
+        border: none;
+        width: 100%;
+
+        svg{
+          font-size: 35px;
+          cursor: pointer;
+          transition: transform 300ms;
+
+          &:hover{
+            transform: rotate(-180deg);
+          }
+          
+        }
+
+      }
+      
+    }
+
+  }
+
+}
