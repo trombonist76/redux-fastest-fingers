@@ -1,15 +1,14 @@
 import { useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {BiTimer} from "react-icons/bi"
-import { addFinishedGame } from "../redux/recentGamesSlice";
-import { correctWordsSelector, decreaseTime, isStartSelector, timeSelector } from "../redux/wordsSlice";
+import { correctWordsSelector, isStartSelector, timeSelector } from "../redux/wordsSlice";
+import { reduceTime, saveResult } from "../utils/actions";
 
 
 export default function Timer() {
   const time = useSelector((state) => timeSelector(state))
   const isStart = useSelector(state=>isStartSelector(state))
   const correctWords = useSelector((state) => correctWordsSelector(state))
-  const dispatch = useDispatch();
 
   useEffect(() => {
     let interval
@@ -17,19 +16,17 @@ export default function Timer() {
 
     if (startingCondition) {
       interval = setInterval(() => {
-        if(time > 0){
-          dispatch(decreaseTime())
-        }
+        reduceTime()
       }, 1000)
 
     }else{
-        dispatch(addFinishedGame({point:correctWords.length}))
+        saveResult(correctWords.length)
     }
     return () => {
       clearInterval(interval);
     }
 
-  }, [time, dispatch, correctWords, isStart]);
+  }, [time, correctWords, isStart]);
 
   return (
       <div className="timer">

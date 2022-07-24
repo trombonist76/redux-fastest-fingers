@@ -17,7 +17,7 @@ const wordsSlice = createSlice({
   },
   reducers: {
 
-    handleSpace: (state) => {
+    space: (state) => {
       const word = state.wordList[state.currentIndex]
       const isEqual = state.textInput.trim() === word.targetWord
       if (isEqual) {
@@ -31,13 +31,6 @@ const wordsSlice = createSlice({
       state.currentIndex++
 
       state.textInput = ""
-    },
-
-    handleType: (state) => {
-      if (!state.isStart) {
-        state.isStart = true
-      }
-      state.keyPress++
     },
 
     decreaseTime: (state) => {
@@ -56,8 +49,19 @@ const wordsSlice = createSlice({
       state.wordList = shuffle(state.wordList)
     },
 
-    setInputValue: (state, action) => {
-      state.textInput = action.payload
+    setText: (state, action) => {
+      if (!state.isStart) {
+        state.isStart = true
+      }
+
+      const text = action.payload.trim()
+      if(text){
+        state.keyPress++
+        state.textInput = action.payload
+      }else{
+        state.textInput = ""
+      }
+
     }
   }
 
@@ -74,5 +78,5 @@ export const isStartSelector = state => state.words.isStart
 export const keyPressSelector = state => state.words.keyPress
 export const wrongCharsSelector = state => state.words.wrongChars
 
-export const { decreaseTime, replay, setInputValue, handleSpace, handleType } = wordsSlice.actions
+export const { decreaseTime, replay, setText, space } = wordsSlice.actions
 export default wordsSlice.reducer

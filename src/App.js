@@ -12,6 +12,7 @@ function App() {
       <Input/>
       <Result/>
     </div>
+  
   );
 }
 
