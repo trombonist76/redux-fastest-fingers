@@ -9,10 +9,10 @@ export default function Timer() {
   const time = useSelector((state) => timeSelector(state))
   const isStart = useSelector(state=>isStartSelector(state))
   const correctWords = useSelector((state) => correctWordsSelector(state))
+  const startingCondition = isStart && time > 0
 
   useEffect(() => {
     let interval
-    const startingCondition = isStart && time > 0
 
     if (startingCondition) {
       interval = setInterval(() => {
@@ -26,7 +26,7 @@ export default function Timer() {
       clearInterval(interval);
     }
 
-  }, [time, correctWords, isStart]);
+  }, [time, correctWords, startingCondition]);
 
   return (
       <div className="timer">
