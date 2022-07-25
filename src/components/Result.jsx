@@ -38,10 +38,10 @@ export default function Result() {
                     Accuracy: <span>{parseInt((correctWords.length / (wrongWords.length + correctWords.length)) * 100)}%</span>
                 </div>
                 <div >
-                    Correct Words: <span>{wrongWords.length}</span>
+                    Correct Words: <span>{correctWords.length}</span>
                 </div>
                 <div>
-                    Wrong Words: <span>{correctWords.length}</span>
+                    Wrong Words: <span>{wrongWords.length}</span>
                 </div>
             </div>
             <button onClick={handleClick}><MdReplay/></button>
