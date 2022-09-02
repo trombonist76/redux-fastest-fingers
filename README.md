@@ -1,4 +1,4 @@
-# Getting Started with Redux-Spend-Money
+# Getting Started with Redux-Fastest-Fingers
 
 This project is a "Typing Speed App" developed with reactjs
 
