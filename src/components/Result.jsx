@@ -32,7 +32,7 @@ export default function Result() {
             <div className="inner">
                 <div className="keyStroke">
                     Key Stroke:
-                    <span dataCorrect={keyPress - wrongChars} dataWrong={wrongChars}>{keyPress}</span>
+                    {/* <span dataCorrect={keyPress - wrongChars} dataWrong={wrongChars}>{keyPress}</span> */}
                 </div>
                 <div>
                     Accuracy: <span>{parseInt((correctWords.length / (wrongWords.length + correctWords.length)) * 100)}%</span>

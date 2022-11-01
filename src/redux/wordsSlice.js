@@ -9,7 +9,7 @@ const wordsSlice = createSlice({
     currentIndex: 0,
     textInput: "",
     isStart: false,
-    time: 60,
+    time: 5,
     keyPress: 0,
     wrongWords: [],
     correctWords: [],
@@ -19,17 +19,16 @@ const wordsSlice = createSlice({
 
     space: (state) => {
       const word = state.wordList[state.currentIndex]
-      const isEqual = state.textInput.trim() === word.targetWord
+      const isEqual = state.textInput === word.targetWord
       if (isEqual) {
         state.correctWords.push(word.rank)
       }
       else {
-        const wrongChars = state.textInput.trim().split("").filter((char, index) => (char !== word.targetWord[index]))
+        const wrongChars = state.textInput.split("").filter((char, index) => (char !== word.targetWord[index]))
         state.wrongChars += wrongChars.length
         state.wrongWords.push(word.rank)
       }
       state.currentIndex++
-
       state.textInput = ""
     },
 
@@ -41,7 +40,7 @@ const wordsSlice = createSlice({
       state.currentIndex = 0
       state.textInput = ""
       state.isStart = false
-      state.time = 60
+      state.time = 5
       state.keyPress = 0
       state.wrongWords = []
       state.correctWords = []
@@ -54,17 +53,10 @@ const wordsSlice = createSlice({
         state.isStart = true
       }
 
-      const text = action.payload.trim()
-      if(text){
-        state.keyPress++
-        state.textInput = action.payload
-      }else{
-        state.textInput = ""
-      }
-
+      state.keyPress++
+      state.textInput = action.payload
     }
   }
-
 })
 
 

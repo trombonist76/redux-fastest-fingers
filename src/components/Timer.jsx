@@ -1,9 +1,8 @@
 import { useEffect} from "react";
 import { useSelector } from "react-redux";
-import {BiTimer} from "react-icons/bi"
-import { correctWordsSelector, isStartSelector, timeSelector } from "../redux/wordsSlice";
+import { correctWordsSelector, isStartSelector, timeSelector } from "../redux/wordsSlice";  
+import { BiTimer } from "react-icons/bi"
 import { reduceTime, saveResult } from "../utils/actions";
-
 
 export default function Timer() {
   const time = useSelector((state) => timeSelector(state))
@@ -13,20 +12,18 @@ export default function Timer() {
 
   useEffect(() => {
     let interval
-
     if (startingCondition) {
       interval = setInterval(() => {
-        reduceTime()
+        reduceTime()        
       }, 1000)
-
     }else{
-        saveResult(correctWords.length)
+      saveResult(correctWords.length)
     }
     return () => {
       clearInterval(interval);
     }
 
-  }, [time, correctWords, startingCondition]);
+  }, [startingCondition]);
 
   return (
       <div className="timer">

@@ -12,5 +12,5 @@ const recentGamesSlice = createSlice({
     }
 })
 
-export const {addFinishedGame} = recentGamesSlice.actions
+export const { addFinishedGame } = recentGamesSlice.actions
 export default recentGamesSlice.reducer

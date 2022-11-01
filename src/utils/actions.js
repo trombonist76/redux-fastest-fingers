@@ -10,8 +10,8 @@ export const handleText = (text) => {
   store.dispatch(setText(text))
 }
 
-export const reduceTime = (text) => {
-  store.dispatch(decreaseTime(text))
+export const reduceTime = () => {
+  store.dispatch(decreaseTime())
 }
 
 export const handleReplay = () => {
