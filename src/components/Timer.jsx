@@ -26,7 +26,7 @@ export default function Timer() {
   }, [startingCondition]);
 
   return (
-      <div className="timer">
+      <div className="navbar__timer">
       <BiTimer/>
        {time}
       </div>

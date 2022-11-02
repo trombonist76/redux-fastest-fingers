@@ -1,17 +1,7 @@
 function shuffle(array) {
-  let counter = array.length;
+  const sortedArray = [...array.sort(() => Math.random() - 0.5)]
 
-  while (counter > 0) {
-      let index = Math.floor(Math.random() * counter);
-
-      counter--;
-      
-      let temp = array[counter];
-      array[counter] = array[index];
-      array[index] = temp;
-  }
-
-  return array;
+  return sortedArray;
 }
 
 export default shuffle

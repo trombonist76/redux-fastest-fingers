@@ -26,7 +26,7 @@ export default function Word({word,index}) {
   return (
         <span
           ref={currentWord}
-          className={classNames({
+          className={classNames("word",{
             current: isCurrent,
             highlightWrong: currentIndex === index && (!startsWith),
             wrong: isInWrongWords,

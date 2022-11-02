@@ -7,7 +7,7 @@ export default function TextArea() {
  
   return (
     <div className="textarea">
-      <div className="inner">
+      <div className="textarea__inner">
       {wordList.map((word, index) => (
         <Word word={word} index={index} key={index}/>
       ))}

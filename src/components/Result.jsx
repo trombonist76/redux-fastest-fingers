@@ -23,16 +23,16 @@ export default function Result() {
   }
 
   return (
-    <div className="showResult" style={display} >
+    <div className="results" style={display} >
         <div className="stats">
-            <div className="title">
+            <div className="stats__title">
                 Your Fingers Result <GiSpockHand />
             </div>
-            <div className="wordsPerMinute">{correctWords.length} WPM <span>(Word Per Minute)</span></div>
-            <div className="inner">
+            <div className="stats__wpm">{correctWords.length} WPM <span>(Word Per Minute)</span></div>
+            <div className="stats__inner">
                 <div className="keyStroke">
                     Key Stroke:
-                    {/* <span dataCorrect={keyPress - wrongChars} dataWrong={wrongChars}>{keyPress}</span> */}
+                    <span correct={keyPress - wrongChars} wrong={wrongChars}>{keyPress}</span>
                 </div>
                 <div>
                     Accuracy: <span>{parseInt((correctWords.length / (wrongWords.length + correctWords.length)) * 100)}%</span>
@@ -44,7 +44,7 @@ export default function Result() {
                     Wrong Words: <span>{wrongWords.length}</span>
                 </div>
             </div>
-            <button onClick={handleClick}><MdReplay/></button>
+            <button className="stats__replay" onClick={handleClick}><MdReplay/></button>
         </div>
     </div>
   );

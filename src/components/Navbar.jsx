@@ -14,8 +14,8 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <Timer />
-      <div className="content">
-        <h1>Fastest Fingers</h1>
+      <div className="navbar__content">
+        <h1 className="title">Fastest Fingers</h1>
         <div className="replay">
             <button onClick={handleClick}><MdReplay/></button>
         </div>
