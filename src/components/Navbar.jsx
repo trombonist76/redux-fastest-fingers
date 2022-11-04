@@ -3,8 +3,6 @@ import { useDispatch} from "react-redux";
 import { replay } from "../redux/wordsSlice";
 import { MdReplay } from "react-icons/md";
 
-
-
 export default function Navbar() {
   const dispatch = useDispatch()
   const handleClick = () => {

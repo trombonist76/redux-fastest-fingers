@@ -1,22 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
-import wordList from "../words.json"
-import shuffle from "../shuffle"
-
-const initialState = () => ({
-  wordList: shuffle(wordList.words),
-  currentIndex: 0,
-  textInput: "",
-  isStart: false,
-  time: 5,
-  keyPress: 0,
-  wrongWords: [],
-  correctWords: [],
-  wrongChars: 0
-})
+import { getInitialState } from "../utils"
 
 const wordsSlice = createSlice({
   name: "words",
-  initialState: initialState(),
+  initialState: getInitialState(),
   reducers: {
 
     space: (state) => {
@@ -38,8 +25,8 @@ const wordsSlice = createSlice({
       state.time -= 1
     },
 
-    replay: (state) => ({
-      ...initialState(),
+    replay: () => ({
+      ...getInitialState(),
     }),
 
     setText: (state, action) => {

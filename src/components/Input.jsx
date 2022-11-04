@@ -17,8 +17,12 @@ export default function Input() {
     }
   }
 
+  const handleChange = (e) => {
+    setText(e.target.value.trim())
+  }
+
+  //debounce
   useEffect(() => {
-    if(!text) return
     const to = setTimeout(() => {
       handleText(text)
     }, 10)
@@ -28,10 +32,6 @@ export default function Input() {
     }
 
   },[text])
-
-  const handleChange = (e) => {
-    setText(e.target.value.trim())
-  }
 
   return (
     <label className='type'>

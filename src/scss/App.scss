@@ -11,6 +11,19 @@
   font-family: "Sora", sans-serif;
 }
 
+
+html {
+  font-size: 8px;
+  
+  @include md{
+    font-size: 12px;
+  }
+
+  @include lg{
+    font-size: 16px;
+  }
+}
+
 html,
 body,
 #root,
@@ -20,81 +33,84 @@ body,
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  align-items: center;
 
   .navbar {
-      width: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem 2rem;
+    
+    &__content {
+      height: 6rem;
+      width: 95%;
+      margin-left: auto;
+      background-color: $bg-indigo;
+      border-radius: 1.7rem;
       display: flex;
-      padding-left: 15px;
       align-items: center;
-      margin: 15px 0 100px 0px;
+      justify-content: flex-end;
+      color: white;
+      overflow: hidden;
+      
+      .title {
+        margin: auto;
+        transform: translateX(30px);
+      }
+  
+      .replay {
+        height: 100%;
 
-      &__content {
-        height: 100px;
-        flex: 1;
-        background-color: $bg-indigo;
-        transform: translateX(-30px);
-        border-radius: 27px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        color: white;
-        overflow: hidden;
-  
-        .title {
-          margin: auto;
-          transform: translateX(30px);
-        }
-  
-        .replay {
+        button {
+          display: flex;
+          background: none;
+          color: red;
+          font-size: 1.1rem;
           height: 100%;
-  
-          button {
-            display: flex;
-            background: none;
-            color: red;
-            font-size: 18px;
-            height: 100%;
-            color: white;
-            width: 120px;
-            border: none;
-            cursor: pointer;
-  
-            svg {
-              font-size: 35px;
-              margin: auto;
-            }
+          color: white;
+          width: 7rem;
+          border: none;
+          cursor: pointer;
+
+          svg {
+            font-size: 2rem;
+            margin: auto;
           }
         }
       }
+    }
   
-      &__timer {
-        width: 170px;
-        height: 170px;
-        font-size: 28px;
-        font-weight: bold;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #fcca46;
-        color: black;
-        position: relative;
-        z-index: 1;
-    
-        svg {
-          width: 45px;
-          height: 45px;
-        }
-    
-        span {
-          width: 60px;
-          height: 60px;
-        }
+    &__timer {
+      width: 9rem;
+      height: 9rem;
+      position: absolute;
+      font-size: 1.9rem;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #fcca46;
+      color: black;
+      z-index: 1;
+      margin-left: auto;
+
+      @include md{
+        width: 11rem;
+        height: 11rem;
       }
+      
+      svg {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+    }
   }
 
   .textarea {
@@ -103,28 +119,34 @@ body,
     justify-content: center;
     border: 2px solid $bg-indigo;
     overflow: hidden;
-    width: 60%;
-    height: 170px;
-    margin-bottom: 70px;
-    padding: 20px;
-    border-radius: 15px;
+    width: 80%;
+    height: 11rem;
+    padding: 1.3rem;
+    border-radius: .9rem;
+
+    @include md{
+      width: 70%;
+    }
+
+    @include lg{
+      width: 60%;
+    }
 
     &__inner{
       display: flex;
       justify-content: space-around;
       height: 100%;
-      font-size: 1.8em;
+      font-size: 1.8rem;
       flex-wrap: wrap;
-      row-gap: 15px;
+      row-gap: .9rem;
       overflow: hidden;
 
       .word {
         @include centered-row;
-        margin-top: 20px;
-        height: 55px;
+        height: 3.3rem;
         margin: 2px;
-        padding: 8px 12px;
-        border-radius: 18px;
+        padding: .5rem .75rem;
+        border-radius: 1.1rem;
   
         &.current {
           background-color: $bg-current;
@@ -146,18 +168,25 @@ body,
     }
   }
 
-
   .type{
-    width: 50%;
-    height: 80px;
+    width: 70%;
+    height: 5rem;
     background-color: $bg-light;
     position: relative;
+
+    @include md{
+      width: 60%;
+    }
+
+    @include lg{
+      width: 50%;
+    }
 
     &__input{
       width: 100%;
       height: 100%;
-      padding: 0 15px;
-      font-size: 1.5em;
+      padding: 0 .9rem;
+      font-size: 1.5rem;
       border: 2px solid $bg-indigo;
       background-color: $bg-light;
       
@@ -168,54 +197,65 @@ body,
 
     &__placeholder{
       position: absolute;
-      top: -10px;
-      right: 50px;
-      font-size: 1.3em;
+      top: -.6rem;
+      right: 3.2rem;
+      font-size: 1.3rem;
       background-color: $bg-light;
-      padding: 0 10px;
-
+      padding: 0 .6rem;
     }
   }
 
   .results{
     @include centered-row;
+    background-color: rgba(#000, $alpha: .7);
     position: absolute;
+    height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    background-color: $bg-sky;
-    height: 100%;
     z-index: 1;
 
     .stats{
       @include centered-col;
-      height: 500px;
-      border: 2px solid black;
-      width: 40%;
+      background-color: $bg-results;
+      color: white;
       justify-content:space-evenly;
-      padding: 30px;
+      border-radius: .6rem;
+      height: 60%;
+      width: 80%;
+      padding: 1.8rem;
+
+      @include md{
+        height: 60%;
+        width: 60%;
+      }
+  
+      @include lg{
+        height: 60%;
+        width: 40%;
+      }
 
       &__title{
         @include centered-row;
-        font-size: 35px;
+        font-size: 2.2rem;
         font-weight: bold;
         
-  
         svg{
-          font-size: 40 px;
-          margin-left: 10px;
-          margin-bottom: 5px;
-          color: rgb(0, 0, 0);
+          color: #faedcd;
+          font-size: 2.7rem;
+          margin-left: .4rem;
+          margin-bottom: .3rem;
         }
       }
   
       &__wpm{
-        font-size: 35px; 
-        margin-bottom: 20px;
+        font-size: 2.1rem; 
+        margin-bottom: 1.4rem;
         text-align: center;
+
         span{
           display: block;
-          font-size: 14px;
+          font-size: .8rem;
           font-weight: 300;
           // font-style: italic;
         }
@@ -223,18 +263,17 @@ body,
 
       &__inner{
         width: 50%;
-        margin-bottom: 20px;
+        margin-bottom: 1.4rem;
 
         div{
           width: 100%;
           display: flex;
-          font-size: 20px;
+          font-size: 1.4rem;
           font-weight: bold;
-        
+
           span{
             margin-left: auto;
           }
-
         }
         
         .keyStroke span{
@@ -244,13 +283,11 @@ body,
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+            font-size: .8rem;
             color: $text-red;
             font-weight: bold;
-
             border-radius: 50%;
-            margin-right: 10px;
-          
+            margin-right: .4rem;
           }
 
           &::after{
@@ -258,16 +295,13 @@ body,
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+            font-size: .8rem;
             font-weight: bold;
             color: $text-green;
             border-radius: 50%;
-            margin-left: 10px;
-
+            margin-left: .4rem;
           }
-
         }
-
       }
 
       &__replay{
@@ -275,9 +309,10 @@ body,
         background: none;
         border: none;
         width: 100%;
+        color: white;
 
         svg{
-          font-size: 35px;
+          font-size: 2rem;
           cursor: pointer;
           transition: transform 300ms;
 
