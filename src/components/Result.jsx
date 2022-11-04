@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
-import {
-  correctWordsSelector,
-  keyPressSelector,
-  timeSelector,
-  wrongCharsSelector,
-  wrongWordsSelector,
-} from "../redux/wordsSlice";
 import { GiSpockHand } from "react-icons/gi";
 import { MdReplay } from "react-icons/md";
 import { handleReplay } from "../utils/actions";
+import {
+    correctWordsSelector,
+    keyPressSelector,
+    timeSelector,
+    wrongCharsSelector,
+    wrongWordsSelector,
+  } from "../redux/wordsSlice";
 
 export default function Result() {
   const time = useSelector((state) => timeSelector(state));
@@ -30,18 +30,18 @@ export default function Result() {
             </div>
             <div className="stats__wpm">{correctWords.length} WPM <span>(Word Per Minute)</span></div>
             <div className="stats__inner">
-                <div className="keyStroke">
+                <div className="spec keyStroke">
                     Key Stroke:
-                    <span correct={keyPress - wrongChars} wrong={wrongChars}>{keyPress}</span>
+                    <span className="value" correct={keyPress - wrongChars} wrong={wrongChars}>{keyPress}</span>
                 </div>
-                <div>
-                    Accuracy: <span>{parseInt((correctWords.length / (wrongWords.length + correctWords.length)) * 100)}%</span>
+                <div className="spec">
+                    Accuracy: <span className="value">{parseInt((correctWords.length / (wrongWords.length + correctWords.length)) * 100)}%</span>
                 </div>
-                <div >
-                    Correct Words: <span>{correctWords.length}</span>
+                <div className="spec">
+                    Correct Words: <span className="value">{correctWords.length}</span>
                 </div>
-                <div>
-                    Wrong Words: <span>{wrongWords.length}</span>
+                <div className="spec">
+                    Wrong Words: <span className="value">{wrongWords.length}</span>
                 </div>
             </div>
             <button className="stats__replay" onClick={handleClick}><MdReplay/></button>

@@ -11,7 +11,7 @@ export const getInitialState = () => ({
   currentIndex: 0,
   textInput: "",
   isStart: false,
-  time: 5,
+  time: 60,
   keyPress: 0,
   wrongWords: [],
   correctWords: [],

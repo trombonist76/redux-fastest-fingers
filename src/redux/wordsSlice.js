@@ -35,11 +35,10 @@ const wordsSlice = createSlice({
       }
 
       state.keyPress++
-      state.textInput = action.payload
+      state.textInput = action.payload.trim()
     }
   }
 })
-
 
 export const wrongWordsSelector = state => state.words.wrongWords
 export const correctWordsSelector = state => state.words.correctWords

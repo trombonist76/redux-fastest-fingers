@@ -1,6 +1,5 @@
 import TextArea from './components/TextArea';
 import Navbar from "./components/Navbar.jsx"
-import './scss/App.scss';
 import Input from './components/Input';
 import Result from './components/Result';
 
@@ -12,7 +11,6 @@ function App() {
       <Input/>
       <Result/>
     </div>
-  
   );
 }
 
