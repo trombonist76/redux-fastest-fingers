@@ -1,26 +1,30 @@
-# Getting Started with Redux-Fastest-Fingers
+<div align="center">
+  <h2><b> Getting Started with Redux-Fastest-Fingers </b></h2>
+</div>
+<br/>
 
-This project is a "Typing Speed App" developed with reactjs
+<div align="center">
+<h3><b> 🛠️ USED TECHNOLOGIES</b></h3>
+<br>
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></img>
+<img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"></img>
+<img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"></img>
+<img src="https://img.shields.io/badge/SASS-eeeeee?style=for-the-badge&logo=sass&logoColor=cf649a"></img>
+</div>
 
-## Available Scripts
 
-In the project directory, you can run:
+## :dart: **Aim**
 
-### `npm start`
+####  I coded this project to improve myself on redux and state management.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Try and see how fast you write.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## :tv: **DEMO**
+### [Netlify Demo](https://fastest-fingers.netlify.app/)
+<br>
 
-## Aim
-
-I coded this project to improve myself on redux and state management.
-
-Try and see how fast you write.
-
-## Images From Project
+## :film_strip: <b>Preview</b>
 
 ![Image 1](/images/1.png?raw=true "First")
 ![Image 2](/images/2.png?raw=true "Second")

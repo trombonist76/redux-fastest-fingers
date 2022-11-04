@@ -23,7 +23,7 @@ export default function Timer() {
       clearInterval(interval);
     }
 
-  }, [startingCondition]);
+  }, [startingCondition, correctWords.length]);
 
   return (
       <div className="navbar__timer">
